@@ -1,0 +1,9 @@
+1. Install Vercel CLI: If you haven't already, install the Vercel CLI.
+    sudo npm install -g vercel or
+    npm install -g vercel
+
+
+
+Re-deploy to vercel:
+    Deploy the Project: Deploy your project to Vercel.
+        vercel --prod

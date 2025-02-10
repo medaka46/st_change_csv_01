@@ -1,0 +1,34 @@
+Step-by-Step Guide to Deploy a Streamlit App
+1. Prepare Your Streamlit Application
+Make sure your Streamlit application is ready. Your main Python file (e.g., app.py) should include the necessary Streamlit code. 
+Here’s a simple example:
+)
+2. Install Streamlit
+If you haven't already installed Streamlit, you can do so using pip:
+streamlit
+
+3. Run Locally (Optional)
+Before deploying, you can test your application locally:
+py
+This command will start a local server, and you can view your app in your web browser at http://localhost:8501.
+
+4. Create a Requirements File
+If your app has dependencies, create a requirements.txt file to specify them. You can generate this file using:
+txt
+Make sure to include Streamlit in this file.
+
+5. Deploying to Streamlit Sharing
+Streamlit Sharing is a free platform provided by Streamlit for deploying apps. Here’s how to deploy using Streamlit Sharing:
+
+1. Push Your Code to GitHub:
+Create a new repository on GitHub.
+Push your Streamlit app (including app.py and requirements.txt) to this repository.
+
+2. Deploy on Streamlit Sharing:
+Go to Streamlit Sharing.
+Sign in with your GitHub account.
+Click on "New app".
+Select the repository and branch where your app is located.
+Specify the main file (e.g., app.py).
+Click "Deploy".
+Your app will be deployed, and you will receive a URL to access it.

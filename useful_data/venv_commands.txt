@@ -1,0 +1,6 @@
+1. Create a Virtual Environment
+    python3.12 -m venv myenv
+
+2. Activate the Virtual Environment
+    source myenv/bin/activate (On macOS and Linux)
+    myenv\Scripts\activate (On Windows)

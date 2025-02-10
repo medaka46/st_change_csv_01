@@ -1,0 +1,37 @@
+pip / requirements.txt
+    Generate requirements.txt file:
+        pip freeze > requirements.txt
+
+    Install package from requirements.txt:
+        pip install -r requirements.txt
+
+    Using pipreqs for Minimal requirements.txt
+        If you want to generate a requirements.txt file that includes only the packages your project actually imports, you can use pipreqs:
+    Install pipreqs:
+        pip install pipreqs
+    Generate requirements.txt: (Go to project folder then)
+        pipreqs .
+    This will create a requirements.txt file with only the packages that are imported in your project files.
+
+
+
+    
+1. List All Installed Packages
+First, list all installed packages using pip list:
+
+    pip list
+
+2. Generate a List of All Packages
+Generate a list of all installed packages and save it to a file:
+
+    pip freeze > all_packages.txt
+
+3. Uninstall All Packages
+Use the generated file to uninstall all packages:
+
+    pip uninstall -r all_packages.txt -y
+
+4. Verify Uninstallation
+You can verify that all packages have been removed by listing the installed packages again:
+
+    pip list

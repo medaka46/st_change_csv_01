@@ -1,0 +1,122 @@
+_____ First time deployment -----
+
+Deploying your FastAPI project to Render involves several steps. Below is a detailed, 
+step-by-step guide to help you deploy your project directory render_test_00 to Render.
+
+Step 1: Set Up Your Render Account
+    1. Create an Account: Go to Render.com and sign up for an account if you don't already have one.
+    2. Log In: Log in to your Render account.
+
+Step 2: Prepare Your Project for Deployment
+    1. Ensure Your Project Structure: Make sure your project directory render_test_00 has the following structure:
+
+        render_test_00/
+        ├── api/
+        │   ├── __init__.py
+        │   ├── database.py
+        │   ├── main.py
+        │   ├── models.py
+        │   └── schemas.py
+        ├── database.db
+        ├── requirements.txt
+        └── start.sh
+
+    2. Create a requirements.txt File: Ensure you have a requirements.txt file that lists all the dependencies for your project. 
+    You can generate this file using:
+
+        pip freeze > requirements.txt
+
+    2A. Create a minimum sizerequirements.txt File: Ensure you have a requirements.txt file that lists all the dependencies for your project. 
+
+        pip install pipreqs
+        pipreqs /path/to/your/project
+
+    3. Create a start.sh Script: Create a start.sh script to start your FastAPI application with Uvicorn. 
+    This script should be executable.
+
+        #!/bin/bash
+        uvicorn api.main:app --host 0.0.0.0 --port 8000
+
+    4. Make the script executable:
+
+Step 3: Push Your Project to a Git Repository
+    1. Initialize a Git Repository: If you haven't already, initialize a Git repository in your project directory.
+
+        cd render_test_00
+        git init
+
+    2. Add and Commit Your Files:
+
+        git add .
+        git commit -m "Initial commit"
+
+    3. Create a Remote Repository: Create a new repository on GitHub, GitLab, or another Git hosting service.
+
+    4. Add the Remote Repository:
+
+        git remote add origin <your-repo-url>
+
+    5. Push Your Code:
+
+        git push -u origin main
+
+Step 4: Deploy to Render
+    1. Create a New Web Service:
+        In the Render dashboard, click on "New" and select "Web Service".
+        Select your GitHub or GitLab account and select the repository you just pushed.
+
+    2. Configure the Web Service:
+        Name: Give your service a name.
+        Region: Select the region closest to your users.
+        Branch: Choose the branch you want to deploy (e.g., main).
+        Build Command: Specify the command to build your application:
+
+            pip install -r requirements.txt
+
+        - Start Command: Specify the command to start your application:
+
+            ./start.sh
+
+    3. Set Up Environment Variables:
+        If you have any environment variables, add them in the "Environment" section.
+    4. Add Persistent Storage:
+        In the "Disks" section, add a new disk and specify the mount path (e.g., /var/data) if you need persistent storage for your database.
+    5. Deploy Your Application:
+        Click "Create Web Service" to deploy your application.
+        Render will automatically build and deploy your application.
+
+Step 5: Verify Your Deployment
+    1. Check the Logs: Monitor the build and deployment logs in the Render dashboard to ensure everything is working correctly.
+    2. Access Your Application: Once the deployment is complete, Render will provide a URL for your web service. 
+    Visit this URL to verify that your FastAPI application is running.
+
+    Example requirements.txt
+    Here is an example of what your requirements.txt might look like:
+
+    fastapi
+    uvicorn
+    sqlalchemy
+    pydantic
+
+    Example start.sh
+    Here is an example of what your start.sh might look like:
+
+    #!/bin/bash
+    uvicorn api.main:app --host 0.0.0.0 --port 8000
+
+
+    By following these steps, you should be able to deploy your FastAPI project to Render successfully. 
+    If you encounter any issues, refer to the Render documentation or reach out to their support for assistance.
+
+
+----- Deployment for update -----
+
+1. Make Changes Locally: Update your code on your local machine.
+2. Commit Changes: Use Git to commit your changes.
+   git add .
+   git commit -m "Your commit message"
+
+3. Push to GitHub: Push your changes to the GitHub repository connected to your Render service.
+   git push origin main  # or the branch you are using
+   
+
