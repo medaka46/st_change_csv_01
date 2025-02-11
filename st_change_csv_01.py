@@ -27,17 +27,15 @@ edited_df = st.data_editor(st.session_state.data)
 # 保存ボタン
 if st.button("Save Changes"):
     try:
-        # Create a temporary directory in the user's home directory
-        temp_dir = os.path.expanduser('~/.streamlit/temp')
-        os.makedirs(temp_dir, exist_ok=True)
+        # Get the path to the original CSV file
+        csv_file_path = os.path.join(script_dir, 'test.csv')
         
-        # Save to temporary file
-        temp_file_path = os.path.join(temp_dir, 'test.csv')
-        edited_df.to_csv(temp_file_path, index=False)
+        # Save directly to the original CSV file
+        edited_df.to_csv(csv_file_path, index=False)
         
         # Update session state
         st.session_state.data = edited_df
-        st.success("Changes saved successfully to temporary storage!")
+        st.success("Changes saved successfully to test.csv!")
         
     except Exception as e:
         st.error(f"Error saving changes: {str(e)}")
