@@ -39,3 +39,19 @@ if st.button("Save Changes"):
         
     except Exception as e:
         st.error(f"Error saving changes: {str(e)}")
+
+# Read CSVボタン
+if st.button("Read CSV"):
+    try:
+        # Get the path to the CSV file
+        csv_file_path = os.path.join(script_dir, 'test.csv')
+        
+        # Read the CSV file
+        if os.path.exists(csv_file_path):
+            st.session_state.data = pd.read_csv(csv_file_path)
+            st.success("CSV file read successfully!")
+        else:
+            st.error("CSV file not found!")
+            
+    except Exception as e:
+        st.error(f"Error reading CSV file: {str(e)}")
